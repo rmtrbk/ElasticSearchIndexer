@@ -1,5 +1,5 @@
 # ElasticSerchIndexer
-`Lambda function` that updates indexes in `ElasticSearch` triggered by `SQS` event
+`Lambda function` that updates `indexes` in `ElasticSearch` triggered by `SQS` event
 
 ## Design
 * `MetadataExtractorServiceImpl` extracts metadata from an event payload.
@@ -8,12 +8,12 @@
 
 * `ClientBuilderManager` utility class build an `Elasticsearch` client to access `Elasticsearch` APIs.
 
-* `PropertyManager` reads required properties from the environemnt and makes them available across the application.
+* `PropertyManager` reads required properties from the environment and makes them available across the application.
 
 ## Configuring AWS Infrastructure
-* Create an `Elasticsearch` domain(e.g. bookinventory).
+* Create an `Elasticsearch` domain(e.g. `bookinventory`).
 
-* Create an `AWS Lambda` with your preferred function name(e.g. bookInventoryESIndexer) with runtime `Java 8`. In `Permissions` section select a role by creating a new role or use an existing role(e.g. `LambdaFullAccess`).
+* Create an `AWS Lambda` with your preferred function name(e.g. `bookInventoryESIndexer`) with runtime `Java 8`. In `Permissions` section select a role by creating a new role or use an existing role(e.g. `LambdaFullAccess`).
 
 * In created `Lambda Function`'s `Configuration` tab's `Designer` section, add an `SQS` trigger. Note that trigger can be configured at `SQS` end too. Which ever mechanism you prefer would do the job.
 
@@ -25,7 +25,7 @@ Save the relevant values you want to use(ones you used while creating the table)
 
 * Upload the `Lambda` `jar` file and click on `Save`
 
-* Note that if you have a higher load you may need to configure `Basic settings' section with appropriate values for memory and execution time thresholds.
+* Note that if you have a higher load you may need to configure `Basic settings` section with appropriate values for memory and execution time thresholds.
 
 ## How to test
 This is a simple `Java` `Maven` project.
@@ -36,9 +36,7 @@ Send a message with correct `metadata` to the `SQS` queue. You may need to use a
 
 Check `Elasticsearch` domain(using `Kibana` if you prefer). you should see the record.
 
-You can check `Lambda` logs with using `CloudWatch` too.
-
-Below are some `Kibana` start up help queries :)
+Below are some `Kibana` start up help queries just in case if they are required :)
 
 ```sql
 GET _search
@@ -52,4 +50,8 @@ GET _search
 ```sql
 DELETE book-metadata-index
 ```
+
+You can check `Lambda` logs with using `CloudWatch` too.
+
+
 
