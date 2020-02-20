@@ -38,3 +38,18 @@ Check `Elasticsearch` domain(using `Kibana` if you prefer). you should see the r
 
 You can check `Lambda` logs with using `CloudWatch` too.
 
+Below are some `Kibana` start up help queries :)
+
+```sql
+GET _search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+```
+
+```sql
+DELETE book-metadata-index
+```
+
