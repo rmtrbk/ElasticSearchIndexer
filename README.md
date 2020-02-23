@@ -10,6 +10,11 @@
 
 * `PropertyManager` reads required properties from the environment and makes them available across the application.
 
+## Packaging the jar
+This is a simple Java Maven project.
+
+Build Lambda jar with mvn clean install package and upload it to the created Lambda function.
+
 ## Configuring AWS Infrastructure
 * Create an `Elasticsearch` domain(e.g. `bookinventory`).
 
@@ -28,10 +33,6 @@ Save the relevant values you want to use(ones you used while creating the table)
 * Note that if you have a higher load you may need to configure `Basic settings` section with appropriate values for memory and execution time thresholds.
 
 ## How to test
-This is a simple `Java` `Maven` project.
-
-Build `Lambda` `jar` with `mvn clean install package` and upload it to the created `Lambda` function.
-
 Send a message with correct `metadata` to the `SQS` queue. You may need to use a simple code snippet to get the relevant `metadata` attached to the message.
 
 Check `Elasticsearch` domain(using `Kibana` if you prefer). you should see the record.
